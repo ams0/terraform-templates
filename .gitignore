@@ -39,3 +39,4 @@ website/vendor
 .terraform.tfstate.lock.info
 terraform.tfvars
 private_ssh_key
+*.auto.tfvars
