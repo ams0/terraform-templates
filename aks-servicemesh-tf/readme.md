@@ -36,5 +36,3 @@ linkerd       linkerd-sp-validator-57b859447-xsrrt                  2/2     Runn
 linkerd       linkerd-tap-79fb4556cc-vk6pb                          2/2     Running   0          110s
 linkerd       linkerd-web-59b9b7857-2l228                           2/2     Running   0          110s
 ```
-
-
