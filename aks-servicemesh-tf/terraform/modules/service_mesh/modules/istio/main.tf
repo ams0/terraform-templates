@@ -11,6 +11,10 @@ resource "null_resource" "get-istio" {
 }
 
 resource "helm_release" "istio-base" {
+
+  depends_on = [null_resource.get-istio]
+
+
   name             = "istio-base"
   chart            = "./istio-${var.istio_archive_version}/manifests/charts/base"
   namespace        = "istio-system"
@@ -18,6 +22,9 @@ resource "helm_release" "istio-base" {
 }
 
 resource "helm_release" "istio-discovery" {
+
+  depends_on = [null_resource.get-istio]
+
   name             = "istio-discovery"
   chart            = "./istio-${var.istio_archive_version}/manifests/charts/istio-control/istio-discovery"
   namespace        = "istio-system"
@@ -36,6 +43,10 @@ resource "helm_release" "istio-discovery" {
 
 #add if/count for this
 resource "helm_release" "istio-ingress" {
+
+  depends_on = [null_resource.get-istio]
+
+
   name             = "istio-ingress"
   chart            = "./istio-${var.istio_archive_version}/manifests/charts/gateways/istio-ingress"
   namespace        = "istio-system"

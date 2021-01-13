@@ -57,7 +57,7 @@ resource "tls_locally_signed_cert" "issuer_cert" {
 resource "helm_release" "linkerd" {
   name       = "linkerd"
   repository = "https://helm.linkerd.io/stable"
-    chart      = "linkerd2"
+  chart      = "linkerd2"
 
   set {
     name  = "global.identityTrustAnchorsPEM"

@@ -35,5 +35,7 @@ website/vendor
 # Test exclusions
 !command/test-fixtures/**/*.tfstate
 !command/test-fixtures/**/.terraform/
-aks-servicemesh-tf/terraform/.terraform.lock.hcl
-aks-servicemesh-tf/terraform/.terraform.tfstate.lock.info
+.terraform.lock.hcl
+.terraform.tfstate.lock.info
+terraform.tfvars
+private_ssh_key
