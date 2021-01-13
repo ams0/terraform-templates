@@ -5,7 +5,7 @@ This terraform module will deploy an AKS cluster with your Service Mesh of choic
 To interact with the cluster after deployment, enter the `terraform` directory:
 
 ```bash
-export KUBECONFIG=modules/service_mesh/.kube/config 
+export KUBECONFIG=modules/service_mesh/.kube/config
 ```
 
 Istio:
