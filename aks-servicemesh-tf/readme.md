@@ -1,6 +1,10 @@
 # Multi-service mesh Terraform module for Azure Kubernetes Service
 
-This terraform module will deploy an AKS cluster with your Service Mesh of choice, simply by setting the variable `service_mesh_type`. Possible values: `linkerd`, `osm` and `istio`, with a plan to support more meshes in the future.
+This terraform module will deploy an AKS cluster with your Service Mesh of choice, simply by setting the variable `service_mesh_type`. Possible values: `linkerd`, `osm` and `istio`, with a plan to support more meshes in the future. Or you can do it on the command line:
+
+```console
+tf init ; tf apply -var 'service_mesh_type=istio' -auto-approve
+```
 
 To interact with the cluster after deployment, enter the `terraform` directory:
 
