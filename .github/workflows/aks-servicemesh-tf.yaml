@@ -19,13 +19,13 @@ jobs:
     strategy:
       max-parallel: 3
       matrix:
-       service_mesh: [istio, linkerd, osm]
+        service_mesh: [istio, linkerd, osm]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Test Linkerd
+      - name: Test Terraform
         env:
           MESH: ${{ matrix.service_mesh }}
         uses: ams0/terraform-test-in-azure@main
