@@ -34,5 +34,5 @@ jobs:
           arm_client_secret: ${{ secrets.ARM_CLIENT_SECRET }}
           arm_subscription_id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           arm_tenant_id: ${{ secrets.ARM_TENANT_ID }}
-          variables: "-var-file=./terraform.tfvarsexample -var resource_group_name=$MESH -var service_mesh_type=$MESH"
+          variables: "-var-file=./terraform.tfvarsexample -var resource_group_name=${{ matrix.service_mesh }} -var service_mesh_type=$MESH"
           path: ${{ env.path }}/terraform
