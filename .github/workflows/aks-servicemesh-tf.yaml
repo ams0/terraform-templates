@@ -20,12 +20,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-    - name: Init-Plan-Apply-Destroy
-      uses: ams0/terraform-test-in-azure@master
-      with:
-        arm_client_id: ${{ secrets.ARM_CLIENT_ID }}
-        arm_client_secret: ${{ secrets.ARM_CLIENT_SECRET }}
-        arm_subscription_id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-        arm_tenant_id: ${{ secrets.ARM_TENANT_ID }}
-        variables: "-var-file=./terraform.tfvarsexample"
-        path: ${{ env.path }}/terraform
+      - name: Init-Plan-Apply-Destroy
+        uses: ams0/terraform-test-in-azure@master
+        with:
+          arm_client_id: ${{ secrets.ARM_CLIENT_ID }}
+          arm_client_secret: ${{ secrets.ARM_CLIENT_SECRET }}
+          arm_subscription_id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          arm_tenant_id: ${{ secrets.ARM_TENANT_ID }}
+          variables: "-var-file=./terraform.tfvarsexample"
+          path: ${{ env.path }}/terraform
