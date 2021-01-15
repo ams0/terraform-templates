@@ -1,5 +1,4 @@
 .kube/
-osm/
 istio-*/
 *.dll
 *.exe
