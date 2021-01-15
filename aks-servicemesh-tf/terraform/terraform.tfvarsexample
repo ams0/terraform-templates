@@ -5,4 +5,4 @@ vnet_address_prefix   = ["172.20.0.0/16"]
 subnet_address_prefix = ["172.20.1.0/24"]
 agents_count          = 2
 kubernetes_version    = "1.19.3"
-service_mesh_type     = "osm"
+service_mesh_type     = "linkerd"
