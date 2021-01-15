@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Init-Plan-Apply-Destroy
-        uses: ams0/terraform-test-in-azure@master
+        uses: ams0/terraform-test-in-azure@main
         with:
           arm_client_id: ${{ secrets.ARM_CLIENT_ID }}
           arm_client_secret: ${{ secrets.ARM_CLIENT_SECRET }}
