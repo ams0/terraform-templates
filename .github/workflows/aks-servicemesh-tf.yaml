@@ -8,24 +8,31 @@ on:
     branches:
       - master
     paths:
-      - "$GITHUB_WORKFLOW/**"
+      - "aks-servicemesh-tf/**"
   pull_request:
   workflow_dispatch:
 
 jobs:
   terraform:
-    name: "Terraform testing"
+    name: "Test Linkerd"
     runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 3
+      matrix:
+       service_mesh: [istio, linkerd, osm]
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Init-Plan-Apply-Destroy
+      - name: Test Linkerd
+        env:
+          MESH: ${{ matrix.service_mesh }}
         uses: ams0/terraform-test-in-azure@main
         with:
           arm_client_id: ${{ secrets.ARM_CLIENT_ID }}
           arm_client_secret: ${{ secrets.ARM_CLIENT_SECRET }}
           arm_subscription_id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           arm_tenant_id: ${{ secrets.ARM_TENANT_ID }}
-          variables: "-var-file=./terraform.tfvarsexample"
+          variables: "-var-file=./terraform.tfvarsexample -var resource_group_name=$MESH -var service_mesh_type=$MESH"
           path: ${{ env.path }}/terraform
