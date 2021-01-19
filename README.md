@@ -1,5 +1,11 @@
-# terraform-templates
+![aks-servicemesh-tf](https://github.com/ams0/terraform-templates/workflows/aks-servicemesh-tf/badge.svg)
+
+![private-aks](https://github.com/ams0/terraform-templates/workflows/private-aks/badge.svg)
+
+# Terraform Templates 
 
 Terraform templates, mostly for Azure
 
-test branch
+All templates have an associated testing action in Azure, based off my [Github action](https://github.com/ams0/terraform-test-in-azure).
+
+Feel free to open an issue if you have questions or you want to use some of this templates.
