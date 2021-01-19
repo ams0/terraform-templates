@@ -7,7 +7,7 @@ provider "azurerm" {
 }
 
 resource "random_id" "rg" {
-  byte_length = 8
+  byte_length = 4
 }
 
 resource "azurerm_resource_group" "rg" {

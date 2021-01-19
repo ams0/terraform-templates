@@ -1,9 +1,13 @@
+resource "random_id" "jumpbox" {
+  byte_length = 2
+}
+
 resource "azurerm_public_ip" "jumpbox" {
   name                = "jumpbox-pip"
   location            = var.location
   resource_group_name = var.resource_group
   allocation_method   = "Dynamic"
-  domain_name_label   = var.domain_name_label
+  domain_name_label   = "${var.domain_name_label}-${lower(random_id.jumpbox.hex)}"
 }
 
 resource "azurerm_network_security_group" "vm_sg" {

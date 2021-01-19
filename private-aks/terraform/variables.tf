@@ -45,7 +45,7 @@ variable "aks_subnet_prefix" {
 
 variable "kube_version" {
   description = "AKS Kubernetes version"
-  default     = "1.18.8"
+  default     = "1.19.6"
 }
 
 
