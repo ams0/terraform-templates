@@ -1,0 +1,34 @@
+name: aks-kubenet-multipool-multisubnet
+
+env:
+  path: aks-kubenet-multipool-multisubnet
+
+on:
+  schedule:
+    - cron: "0 10 * * *"
+  push:
+    branches:
+      - master
+    paths:
+      - "aks-kubenet-multipool-multisubnet/**"
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  terraform:
+    name: "Test aks-kubenet-multipool-multisubnet"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Terraform plan/apply/destroy
+        uses: ams0/terraform-test-in-azure@main
+        with:
+          arm_client_id: ${{ secrets.ARM_CLIENT_ID }}
+          arm_client_secret: ${{ secrets.ARM_CLIENT_SECRET }}
+          arm_subscription_id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+          arm_tenant_id: ${{ secrets.ARM_TENANT_ID }}
+          variables: "-var-file=./terraform.tfvarsexample"
+          path: ${{ env.path }}/terraform
