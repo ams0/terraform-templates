@@ -4,6 +4,8 @@ env:
   path: private-aks
 
 on:
+  schedule:
+    - cron: "0 10 * * *"
   push:
     branches:
       - master

@@ -4,6 +4,8 @@ env:
   path: aks-servicemesh-tf
 
 on:
+  schedule:
+    - cron: "0 10 * * *"
   push:
     branches:
       - master
