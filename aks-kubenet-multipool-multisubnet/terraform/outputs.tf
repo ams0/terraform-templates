@@ -1,9 +1,9 @@
 output "nameSuffix" {
-  value = "${data.external.get-namesuffix.result.nameSuffix}"
+  value = data.external.get-namesuffix.result.nameSuffix
 }
 
 output "agents_resource_group_name" {
-  value = "${local.agents_resource_group_name}"
+  value = local.agents_resource_group_name
 }
 
 

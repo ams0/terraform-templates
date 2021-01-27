@@ -2,6 +2,10 @@
 
 ![private-aks](https://github.com/ams0/terraform-templates/workflows/private-aks/badge.svg)
 
+![appgw-wildcard-aks](https://github.com/ams0/terraform-templates/workflows/appgw-wildcard-aks/badge.svg)
+
+![aks-kubenet-multipool-multisubnet](https://github.com/ams0/terraform-templates/workflows/aks-kubenet-multipool-multisubnet/badge.svg)
+
 # Terraform Templates 
 
 Terraform templates, mostly for Azure

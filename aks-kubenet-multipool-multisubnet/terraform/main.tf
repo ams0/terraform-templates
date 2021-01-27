@@ -53,6 +53,10 @@ resource "azurerm_kubernetes_cluster" "aks" {
     }
   }
 
+  identity {
+    type = "SystemAssigned"
+  }
+
   network_profile {
     network_plugin     = "kubenet"
     network_policy     = "calico"
@@ -60,10 +64,6 @@ resource "azurerm_kubernetes_cluster" "aks" {
     docker_bridge_cidr = "172.17.0.1/16"
     dns_service_ip     = "10.0.0.10"
     load_balancer_sku  = "Standard"
-  }
-  service_principal {
-    client_id     = var.kubernetes_client_id
-    client_secret = var.kubernetes_client_secret
   }
 }
 
@@ -84,7 +84,7 @@ locals {
 }
 
 data "azurerm_resource_group" "agents" {
-  name = "${local.agents_resource_group_name}"
+  name = local.agents_resource_group_name
 
   depends_on = [
     azurerm_kubernetes_cluster.aks,
@@ -103,7 +103,7 @@ data "external" "get-namesuffix" {
 
 data "azurerm_route_table" "aksrt" {
   name                = "aks-agentpool-${data.external.get-namesuffix.result.nameSuffix}-routetable"
-  resource_group_name = "${local.agents_resource_group_name}"
+  resource_group_name = local.agents_resource_group_name
 }
 
 resource "azurerm_subnet_route_table_association" "poolsubnets" {

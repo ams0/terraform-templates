@@ -1,6 +1,6 @@
 variable "poolsubnets" {
   description = "Subnets and pools"
-  type        = "map"
+  type        = map(string)
   default = {
 
     akssubnetbase  = ["172.20.1.0/24", "Standard_B4ms", 1]

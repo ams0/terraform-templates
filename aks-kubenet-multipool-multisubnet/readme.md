@@ -3,14 +3,14 @@ Creates an AKS cluster with Kubenet, a custom vnet and N subnets for N nodepools
 terraform.tfvars
 
 ```
-kubernetes_version = "1.17.0"
+kubernetes_version = "1.18.14"
 location           = "westeurope"
 address_space      = ["172.20.0.0/16"]
 
 defaultpool = [
   {
     name      = "base",
-    vmsize    = "Standard_A2",
+    vmsize    = "Standard_B4ms",
     nodecount = 2,
     cidr      = "172.20.1.0/24"
   },
