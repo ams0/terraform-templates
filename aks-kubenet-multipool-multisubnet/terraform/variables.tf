@@ -2,11 +2,6 @@ variable "resource_group_name" {
   default = "aksrg"
 }
 
-variable "kubernetes_client_id" {
-}
-
-variable "kubernetes_client_secret" {
-}
 
 variable "kubernetes_version" {
 }
