@@ -3,7 +3,7 @@ output "ssh_command" {
 }
 
 resource "local_file" "key" {
-  filename = pathexpand("~/key")
-  sensitive_content  = module.jumpbox.ssh_private_key
-  file_permission = "0600"
+  filename          = pathexpand("~/key")
+  sensitive_content = module.jumpbox.ssh_private_key
+  file_permission   = "0600"
 }

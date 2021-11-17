@@ -35,17 +35,17 @@ variable "kube_vnet_name" {
 
 variable "kube_address_space" {
   description = "AKS VNET address space"
-  default     =  ["10.0.16.0/20"]
+  default     = ["10.0.16.0/20"]
 }
 
 variable "aks_subnet_prefix" {
   description = "AKS VNET address space for first pool"
-  default     =  ["10.0.16.0/24"]
+  default     = ["10.0.16.0/24"]
 }
 
 variable "kube_version" {
   description = "AKS Kubernetes version"
-  default     = "1.19.6"
+  default     = "1.22.2"
 }
 
 

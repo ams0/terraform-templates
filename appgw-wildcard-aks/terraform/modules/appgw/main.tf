@@ -38,10 +38,10 @@ resource "azurerm_application_gateway" "aksappgw" {
   }
 
   backend_http_settings {
-    name                                = "aksappgw-behhtp"
-    cookie_based_affinity               = "Disabled"
-    port                                = 80
-    protocol                            = "Http"
+    name                  = "aksappgw-behhtp"
+    cookie_based_affinity = "Disabled"
+    port                  = 80
+    protocol              = "Http"
     #this seems to be erratic, try to change it if you get bad gateway hitting the frontend IP, but the backend is known to work.
     pick_host_name_from_backend_address = true
     request_timeout                     = 60

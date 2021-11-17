@@ -13,13 +13,13 @@ variable "additional_node_pools" {
   }))
 }
 
-variable resource_group_name {
+variable "resource_group_name" {
   description = "Resource Group name"
   type        = string
 }
 
 
-variable vnet_name {
+variable "vnet_name" {
   description = "VNET name"
   type        = string
 }

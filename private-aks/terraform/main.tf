@@ -88,10 +88,10 @@ resource "azurerm_kubernetes_cluster" "privateaks" {
   private_cluster_enabled = true
 
   default_node_pool {
-    name           = "default"
-    node_count     = var.nodepool_nodes_count
-    vm_size        = var.nodepool_vm_size
-    vnet_subnet_id = module.kube_network.subnet_ids["aks-subnet"]
+    name               = "default"
+    node_count         = var.nodepool_nodes_count
+    vm_size            = var.nodepool_vm_size
+    vnet_subnet_id     = module.kube_network.subnet_ids["aks-subnet"]
     availability_zones = var.availability_zones
   }
 
@@ -129,12 +129,12 @@ module "jumpbox" {
 }
 
 module "nodepool" {
-  source = "./modules/nodepool"
-  vnet_name   = var.kube_vnet_name
-  resource_group_name = azurerm_resource_group.rg.name
+  source                = "./modules/nodepool"
+  vnet_name             = var.kube_vnet_name
+  resource_group_name   = azurerm_resource_group.rg.name
   kubernetes_cluster_id = azurerm_kubernetes_cluster.privateaks.id
   additional_node_pools = var.additional_node_pools
 
-    depends_on = [azurerm_kubernetes_cluster.privateaks]
+  depends_on = [azurerm_kubernetes_cluster.privateaks]
 
 }

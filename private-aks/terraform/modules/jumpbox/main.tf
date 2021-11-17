@@ -52,13 +52,13 @@ resource "tls_private_key" "sshkey" {
 }
 
 resource "azurerm_linux_virtual_machine" "jumpbox" {
-  name                          = "jumpboxvm"
-  location                      = var.location
-  resource_group_name           = var.resource_group
-  network_interface_ids         = [azurerm_network_interface.vm_nic.id]
-  size                          = "Standard_DS1_v2"
-  computer_name                 = "jumpboxvm"
-  admin_username                = var.vm_user
+  name                  = "jumpboxvm"
+  location              = var.location
+  resource_group_name   = var.resource_group
+  network_interface_ids = [azurerm_network_interface.vm_nic.id]
+  size                  = "Standard_DS1_v2"
+  computer_name         = "jumpboxvm"
+  admin_username        = var.vm_user
 
   os_disk {
     name                 = "jumpboxOsDisk"
@@ -89,9 +89,9 @@ resource "azurerm_linux_virtual_machine" "jumpbox" {
     inline = [
       "mkdir /home/${var.vm_user}/.kube/ ; sudo snap install --classic kubectl",
     ]
-    
+
   }
-    provisioner "file" {
+  provisioner "file" {
     connection {
       host        = self.public_ip_address
       type        = "ssh"

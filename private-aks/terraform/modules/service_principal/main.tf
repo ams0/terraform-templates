@@ -7,7 +7,7 @@ resource "azuread_service_principal" "aks_sp" {
 }
 
 resource "random_string" "aks_cluster_password" {
-  length = 16
+  length  = 16
   special = false
 
   keepers = {
